@@ -72,9 +72,10 @@ class hentaiathome (
 		file { $log:
 			ensure => 'present',
 			mode => '644'
-		}	
+		}
+		$log_target = $log	
 	} else {
-		$log = '/dev/null'
+		$log_target = '/dev/null'
 	}
 
 	# creates server start script.
@@ -89,7 +90,7 @@ class hentaiathome (
 	service {'hah':
 		ensure => $running,
 		provider => 'base',
-		binary => "$server_dir/start.sh &> $log &",
+		binary => "$server_dir/start.sh &> $log_target &",
 		require => File["$server_dir/start.sh"]
 	}
 }
