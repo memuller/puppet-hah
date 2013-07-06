@@ -14,7 +14,7 @@ class hentaiathome (
 	}
 
 	$url = "http://hentaiathome.net/get/HentaiAtHome_$version.zip"
-	$client_auth_string = "$client_id-$client_key"
+	$client_auth_string = "${client_id}-${client_key}"
 
 	Exec { 
 		path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin/" ]
